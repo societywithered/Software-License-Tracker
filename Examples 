@@ -1,0 +1,32 @@
+## Examples
+
+Add a software record:
+
+```sql
+INSERT INTO software (name, version, license_type, renewal_date, notes)
+VALUES ('Photo Editor', '5.2', 'One-time purchase', NULL, 'Bought online');
+
+
+View all tracked software:
+
+          
+            
+            
+          
+          SELECT name, version, license_type, renewal_date
+FROM software
+ORDER BY name;
+
+
+Find subscriptions renewing in the next 30 days:
+
+          
+            
+            
+          
+          SELECT name, renewal_date
+FROM software
+WHERE renewal_date BETWEEN date('now') AND date('now', '+30 days')
+ORDER BY renewal_date;
+
+
